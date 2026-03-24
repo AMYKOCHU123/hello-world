@@ -46,6 +46,19 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <!-- Functions Framework Maven Plugin -->
+            <plugin>
+                <groupId>com.google.cloud.functions</groupId>
+                <artifactId>function-maven-plugin</artifactId>
+                <version>0.9.1</version>
+                <configuration>
+                    <!-- Fully qualified class name of your function -->
+                    <functionTarget>com.example.HelloWorld</functionTarget>
+                    <!-- Port for local testing -->
+                    <port>8080</port>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>
