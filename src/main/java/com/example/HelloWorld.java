@@ -1,11 +1,14 @@
 package com.example;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.google.cloud.functions.HttpFunction;
+import com.google.cloud.functions.HttpRequest;
+import com.google.cloud.functions.HttpResponse;
+import java.io.BufferedWriter;
 
-@SpringBootApplication
-public class HelloWorld {
-    public static void main(String[] args) {
-        SpringApplication.run(HelloWorld.class, args);
+public class HelloWorld implements HttpFunction {
+    @Override
+    public void service(HttpRequest request, HttpResponse response) throws Exception {
+        BufferedWriter writer = response.getWriter();
+        writer.write("Hello, Cloud Function!");
     }
 }
